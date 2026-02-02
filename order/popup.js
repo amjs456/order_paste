@@ -1,31 +1,36 @@
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("run").addEventListener("click", async () => {
-    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    if (!tab?.id) return;
-    const input = document.getElementById("data");
-    const file = input.files[0];
+function parseData(data){
+    return data
+    .replace(/\r\n/g, "\n")
+    .replace(/\r/g, "\n")
+    .split("\n")
+    .filter(line => line.length > 0)
+    .map(line => line.split("\t"));
+}
 
+function setValue(el, value){
+    el.forcus();
+    el.value = value;
+}
 
-    await chrome.scripting.executeScript({
-      target: { tabId: tab.id },
-      func: (file) => {
-        console.log(file.name);
-        const code_name_base = "txt_shohin_cd";
-        const qty_name_base = "txt_suryou";
+function getCodeInputElements() {
+    const codes = [...document.querySelectorAll('input[name="code"]')];
+    const qtys = [...document.querySelectorAll('input[name="qty"]')];
+    const n = Math.min(codes.length, qtys.length);
+    console.log(n);
+    return Array.from({length:n},(_,i)=>({code:codes[i], qty:qtys[i]}));
+}
 
-        for (let i=0;i<10;i++){
-          const code_name = code_name_base+(i+1);
-          const el = document.querySelector(
-              `input[name="${CSS.escape(code_name)}"]`
-          );
-          if (el) {
-            el.value = el.value + "追加したい文字";
-            el.dispatchEvent(new Event("input", { bubbles: true }));
-            el.dispatchEvent(new Event("change", { bubbles: true }));
-          }
-        }
-      },
-      args:[file],
-    });
-  });
+addEventListener("paste", (event) => {
+    const target = event.target;
+    const pasted_data = event.clipboardData?.getData("text/plain");
+    const grid = parseData(pasted_data);
+    event.preventDefault();
+    const pairs=getCodeInputElements();
+    console.log(pairs);
+
+    for (let r=0;r<Math.min(grid.length);r++){
+        const row=grid[r];
+        const code=(row[0]??"").trim();
+        const qty=(row[1]??"").trim();
+    }
 });

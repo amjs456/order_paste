@@ -3,11 +3,33 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
     <script src="./lib/papaparse.min.js"></script>
-    <script type="module" src="./popup.js"></script>
+    <script src="./popup.js"></script>
+    <script type="module" src="./run.js"></script>
   </head>
   <body>
-    <input type="file" id="data" name="data" accept="text/csv" />
+    <table>
+      <tr>
+        <th>品番</th>
+        <th>数量</th>
+      </tr>
+      <tr>
+        <td><input name="code"></td>
+        <td><input name="qty"></td>
+      </tr>
+      <tr>
+        <td><input name="code"></td>
+        <td><input name="qty"></td>
+      </tr>
+      <tr>
+        <td><input name="code"></td>
+        <td><input name="qty"></td>
+      </tr>
+      <tr>
+        <td><input name="code"></td>
+        <td><input name="qty"></td>
+      </tr>
+    </table>
     <button id="run">実行</button>
-    <script src="popup.js"></script>
+    <script src="run.js"></script>
   </body>
 </html>
