@@ -1,0 +1,11 @@
+{
+  "name": "発注用拡張機能",
+  "description": "",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "page.html",
+    "default_icon": "hello_extensions.png"
+  },
+  "permissions": ["scripting", "activeTab"]
+}
