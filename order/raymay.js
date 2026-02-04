@@ -17,7 +17,6 @@ addEventListener("paste", (event)=>{
     const qty_name_base = "txt_suryou";
 
     for (let i=0;i<24;i++){
-        console.log(grid[i])
         const code_name = code_name_base+(i+1);
         const el_code = document.querySelector(
           `input[name="${CSS.escape(code_name)}"]`
