@@ -9,12 +9,12 @@
   "permissions": ["scripting", "activeTab"],
   "content_scripts":[
     {
-    "matches":["file:///C:/Users/uktmb/Downloads/page/order.html"],
+    "matches":["https://www.e-team21.com/*"],
     "js": ["raymay.js"],
     "run_at":"document_idle"
     },
     {
-      "matches":["file:///C:/Users/uktmb/Downloads/page/crown/*"],
+      "matches":["https://www.cr-toolbox.co.jp/*"],
       "js":["crown.js"],
       "run_at":"document_start",
       "all_frames":true,
