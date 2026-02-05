@@ -21,7 +21,11 @@ addEventListener("paste", (event)=>{
         codes[i].value=grid[i][0];
         codes[i].dispatchEvent(new Event("input", { bubbles: true }));
         codes[i].dispatchEvent(new Event("change", { bubbles: true }));
-        qtys[i].value=grid[i][1];
+        if(grid[i][1]==undefined){
+            qtys[i].value=1;
+        }else{
+            qtys[i].value=grid[i][1];
+        }
         qtys[i].dispatchEvent(new Event("input", { bubbles: true }));
         qtys[i].dispatchEvent(new Event("change", { bubbles: true }));
         }
