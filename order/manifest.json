@@ -6,7 +6,7 @@
   "permissions": ["scripting", "activeTab"],
   "content_scripts":[
     {
-    "matches":["https://www.e-team21.com/*"],
+    "matches":["https://www.e-team21.com/etm/w_kata_order.cfm"],
     "js": ["raymay.js"],
     "run_at":"document_idle"
     },
