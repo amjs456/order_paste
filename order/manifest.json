@@ -11,7 +11,7 @@
     "run_at":"document_idle"
     },
     {
-      "matches":["https://www.cr-toolbox.co.jp/*"],
+      "matches":["https://www.cr-toolbox.co.jp/crtoolbox/ControllerServlet?commandId=CrKanniOrderView_Dealer&hinmoku="],
       "js":["crown.js"],
       "run_at":"document_start",
       "all_frames":true,
