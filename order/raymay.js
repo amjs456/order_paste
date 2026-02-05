@@ -31,7 +31,11 @@ addEventListener("paste", (event)=>{
             el_code.dispatchEvent(new Event("change", { bubbles: true }));
         }
         if (el_qty){
+          if(grid[i][1]==undefined){
+            el_qty.value=1;
+          }else{
             el_qty.value=grid[i][1];
+          }
             el_qty.dispatchEvent(new Event("input", { bubbles: true }));
             el_qty.dispatchEvent(new Event("change", { bubbles: true }));
           }
